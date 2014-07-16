@@ -1,6 +1,6 @@
 var math_tools = require('./math_tools.js');
 
-//Este es un listado de variables temporales para poder utilizar al momento de crear personas básicas.
+// Este es un listado de variables temporales para poder utilizar al momento de crear personas básicas.
 var nombres = ["Roberto", "Raul", "Claudio", "Antonio", "Alfred", "Arturo"],
     apellidos = ["Gandulfo", "Sarlanga", "Garolfio", "Piters", "Garlondo", "Rututu", "Perez"],
     profesiones = ["Estudiante", "Carpintero", "Motoquero", "Barrabrava", "Cocinero", "Luchador de lucha libre", "Pastelero", "Transa"];
@@ -9,10 +9,12 @@ var nombres = ["Roberto", "Raul", "Claudio", "Antonio", "Alfred", "Arturo"],
 // ESTO TIENE QUE DEVOLVER UN OBJETO/JSON
 exports.pedir = function(cantidad, callback) {
     var personas = [];
+
     for (var i = 0; i < cantidad; i++) {
         personas.push(create());
     };
-    if (typeof callback === "function") {
+    //Le paso las personas al callback
+    if (typeof callback === "function" && personas.length === cantidad) {
         callback(personas);
     }
 }

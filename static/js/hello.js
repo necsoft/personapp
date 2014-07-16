@@ -3,13 +3,15 @@ var pdf_tools = require('tools/pdf_tools.js');
 
 $(document).ready(function() {
     $("#get_pdf").click(function() {
-        persona.pedir(1, pdf_tools.create_pdf);
+        persona.pedir(23, pdf_tools.create_pdf);
     });
 });
 
-function changeToLoad() {
-    $("#main").load('views/loading.html');
-}
+// function changeToLoad() {
+//     $("#main").load('views/loading.html');
+// }
+// 
+
 
 // function pdf_de_prueba() {
 //     var doc = new jsPDF();
