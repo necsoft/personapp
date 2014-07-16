@@ -7,15 +7,16 @@ var nombres = ["Roberto", "Raul", "Claudio", "Antonio", "Alfred", "Arturo"],
 
 // Nos permite pedir una cantidad de personas desde afuera.
 // ESTO TIENE QUE DEVOLVER UN OBJETO/JSON
-exports.pedir = function(cantidad) {
-    console.log("HOLAAAAA NEC");
+exports.pedir = function(cantidad, callback) {
     var personas = [];
     for (var i = 0; i < cantidad; i++) {
         personas.push(create());
     };
-    console.log(personas);
-    return personas;
+    if (typeof callback === "function") {
+        callback(personas);
+    }
 }
+
 // Esta es la función interna que utilizamos para crear una instancia
 // singular de una persona.
 // ESTO TIENE QUE DEVOLVER UNA INSTANCIA SINGULAR DE PERSONA
