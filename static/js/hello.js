@@ -6,5 +6,7 @@ $("#get_pdf").click(function() {
     // Pedimos el valor del input
     var cantidad_paginas = $("#cantidad").val();
     cantidad_paginas = parseInt(cantidad_paginas);
+    // Aca pedimos una cantidad de paginas y despues le pasamos el callback
+    // por el que tiene que seguir que es crear el pdf.
     persona.pedir(cantidad_paginas, pdf_tools.create_pdf);
 });
