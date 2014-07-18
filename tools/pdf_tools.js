@@ -1,11 +1,13 @@
-var paginas;
-var doc = new window.jsPDF();
-var paginas_procesadas = 0;
-
+var paginas,
+    paginas_procesadas = 0,
+    doc = new window.jsPDF(),
+    Datauri = require('datauri');
 
 exports.create_pdf = function(personas) {
     paginas = personas.length;
+    console.log("El documento tiene que tener " + paginas + " paginas.");
     create_page(personas);
+    console.log(personas);
 }
 
 function create_page(personas) {
@@ -16,12 +18,11 @@ function create_page(personas) {
 
 function checkFile() {
     console.log(paginas_procesadas);
-    console.log("Estoy chequeando");
-    if (paginas_procesadas > paginas - 2) {
+    if (paginas_procesadas == paginas - 1) {
+        console.log("Voy a crear el PDF");
         doc.save('Test.pdf');
     } else {
-        console.log("Todavia no voy a guardar");
-        console.log(paginas_procesadas);
+
     };
 }
 
@@ -31,9 +32,11 @@ function checkFile() {
 function set_page(persona, image) {
     doc.addImage(image, 'JPEG', 15, 40, 180, 160);
     doc.text(20, 20, "Nombre: " + persona.nombre);
+    doc.text(20, 30, "Imagen: " + persona.imagen);
     doc.text(20, 40, "Edad: " + persona.edad + " pirulos");
     doc.addPage();
     paginas_procesadas = paginas_procesadas + 1;
+    console.log("Paginas procesadas = " + paginas_procesadas);
     checkFile();
 }
 
@@ -50,9 +53,11 @@ function query_image(persona, next) {
         canvas.height = image.height;
         canvasContext.drawImage(image, 0, 0, image.width, image.height);
         var dataURL = canvas.toDataURL();
-        console.log(dataURL);
+        // console.log(dataURL);
         // Vamos al callback
-        next(persona, dataURL);
+        // 
+        console.log(Datauri(persona.imagen));
+        next(persona, Datauri(persona.imagen));
     }
     image.src = persona.imagen;
 }

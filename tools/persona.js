@@ -1,11 +1,13 @@
-var math_tools = require('./math_tools.js');
+var math_tools = require('./math_tools.js'),
+    Chance = require('chance'),
+    chance = new Chance();
 
 // Este es un listado de variables temporales para poder utilizar al momento de crear personas básicas.
 var nombres = ["Roberto", "Raul", "Claudio", "Antonio", "Alfred", "Arturo"],
     apellidos = ["Gandulfo", "Sarlanga", "Garolfio", "Piters", "Garlondo", "Rututu", "Perez"],
     profesiones = ["Estudiante", "Carpintero", "Motoquero", "Barrabrava", "Cocinero", "Luchador de lucha libre", "Pastelero", "Transa"],
     imagenes = ["static/images/001.jpg", "static/images/002.jpg", "static/images/003.jpg", "static/images/004.jpg", "static/images/005.jpg",
-        "static/images/006.jpg", "static/images/007.jpg", "static/images/008.jpg"
+        "static/images/006.jpg", "static/images/007.jpg", "static/images/008.jpg", "static/images/009.jpg", "static/images/010.jpg", "static/images/011.jpg", "static/images/012.jpg"
     ];
 
 // Nos permite pedir una cantidad de personas desde afuera.
@@ -29,7 +31,10 @@ exports.pedir = function(cantidad, callback) {
 function create() {
     var nombre = nombres[Math.floor(Math.random() * nombres.length)],
         apellido = apellidos[Math.floor(Math.random() * apellidos.length)],
-        imagen = imagenes[Math.floor((Math.random() - Math.random() + Math.random()) * imagenes.length)],
+        imagen = imagenes[chance.integer({
+            min: 0,
+            max: imagenes.length - 1
+        })],
         edad = math_tools.random_age();
 
     var persona = {
