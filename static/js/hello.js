@@ -1,5 +1,5 @@
-var persona = require('tools/persona.js');
-var pdf_tools = require('tools/pdf_tools.js');
+var persona = require('./tools/persona.js');
+var pdf_tools = require('./tools/pdf_tools.js');
 
 // Click en el botón de crear PDF
 $("#get_pdf").click(function() {
