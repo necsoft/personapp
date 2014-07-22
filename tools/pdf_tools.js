@@ -30,13 +30,27 @@ function checkFile() {
 // Se encarga de dibujar la pagina con los datos que le llegaron de la imagen
 // 
 function set_page(persona, image) {
-    doc.addImage(image, 'JPEG', 75, 20, 50, 50);
+    // Imagen
+    doc.addImage(image, 'JPEG', 140, 5, 50, 50);
+
+    //Nombre
     doc.setTextColor(100);
-    doc.text(20, 20, persona.nombre);
-    doc.text(20, 40, "Edad: " + persona.edad + " pirulos");
+    doc.setFontSize(60);
+    doc.text(20, 20, persona.name);
+
+    //Mas datos
+    doc.setTextColor(150);
+    doc.setFontSize(12);
+    doc.text(20, 30, 'Age: ' + persona.age);
+    doc.text(20, 35, 'Occupation: ' + persona.occupation);
+    doc.text(20, 40, 'Location: ' + persona.location);
+    doc.text(20, 45, 'Device: ' + persona.device);
+    doc.text(20, 50, 'Browser: ' + persona.browser);
+    doc.text(20, 55, 'Network: ' + persona.network);
+
+    // Agregar pagina y chequear archivo
     doc.addPage();
     paginas_procesadas = paginas_procesadas + 1;
-    console.log("Paginas procesadas = " + paginas_procesadas);
     checkFile();
 }
 
@@ -44,5 +58,5 @@ function set_page(persona, image) {
 // a set_page
 function query_image(persona, next) {
     var image = new window.Image();
-    next(persona, Datauri(persona.imagen));
+    next(persona, Datauri(persona.image));
 }
