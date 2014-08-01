@@ -1,13 +1,12 @@
 var paginas,
     paginas_procesadas = 0,
+    isReady = false,
     doc = new window.jsPDF(),
     Datauri = require('datauri');
 
 exports.create_pdf = function(personas) {
     paginas = personas.length;
-    console.log("El documento tiene que tener " + paginas + " paginas.");
     create_page(personas);
-    console.log(personas);
 }
 
 function create_page(personas) {
@@ -17,18 +16,18 @@ function create_page(personas) {
 }
 
 function checkFile() {
-    console.log(paginas_procesadas);
     if (paginas_procesadas == paginas - 1) {
         console.log("Voy a crear el PDF");
-        doc.save('Test.pdf');
-    } else {
-
-    };
+        window.$('#ready').fadeIn();
+        isReady = true;
+    }
 }
 
+exports.saveDoc = function() {
+    doc.save('Test.pdf');
+}
 
-// Se encarga de dibujar la pagina con los datos que le llegaron de la imagen
-// 
+// Se encarga de dibujar la pagina con los datos que le llegaron de la imagen 
 function set_page(persona, image) {
     // Imagen
     doc.addImage(image, 'JPEG', 140, 5, 50, 50);

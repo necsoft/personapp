@@ -1,9 +1,10 @@
-#Personapp
----
+# Personapp
 
-Recordatorio para juan:
+Al bajar el repositorio tenemos que ir a la carpeta e instalar todas las dependencias utilizando npm:
+	
+	$ npm install
 
-```
-$ npm install
-$ grunt && nw .
-```
+Una vez que tenemoslas dependencias instaladas ya podemos correr grunt y node-webkit.
+
+	$ grunt && nw .
+
