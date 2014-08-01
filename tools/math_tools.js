@@ -1,9 +1,9 @@
-/*
- * math_tools
- * -------------------
- * Este es un módulo interno que utilizamos para hacer algunas funciones matemáticas.
- *
- */
+//
+// math_tools
+// -------------------------------------------------------
+// 
+// Este es un módulo interno que utilizamos para hacer algunas funciones matemáticas.
+//
 
 exports.nrand = function() {
     var x1, x2, rad, y1;
