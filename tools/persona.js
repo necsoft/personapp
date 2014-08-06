@@ -1,21 +1,21 @@
-// 
+//
 // persona.js
 // -------------------------------------------------------
-// 
+//
 // Este modulo se encarga de la creacion de las personas en
 // tanto y en cuanto dato, es decir aca se genera toda la
 // lógica generativa de personapp.
-// 
+//
 // Actualmente algunas cosas están funcionando de manera
 // estática, pero a futuro van a tener valores y diccionarios
 // reales.
-// 
+//
 // COSAS PARA HACER:
-// 
+//
 //  * Conseguir un listado de Nombres, Ciudades y Profesiones.
 //  * Mejorar el algoritmo de edad para poder generar un Gaussiano creible.
 //  * Guardar un valor de sexop para saber luego que imagen asignar.
-// 
+//
 
 var math_tools = require('./math_tools.js'),
     Chance = require('chance'),
@@ -46,12 +46,12 @@ var names = [
         "static/images/010.jpg", "static/images/011.jpg", "static/images/012.jpg"
     ];
 
-// 
-// create()
-// 
+//
+// give_me()
+//
 // Este modulo recibe una petición de crear una cantidad de personas,
 // las crea y le pasa un array de objetos al callback que nos pasen.
-// 
+//
 
 exports.give_me = function(cantidad, callback) {
     var personas = [];
@@ -63,13 +63,13 @@ exports.give_me = function(cantidad, callback) {
     }
 }
 
-// 
+//
 // create()
-// 
+//
 // Crea una instancia singular de persona, en este apartado
 // se arma toda la selección generativa en base a los valores
 // que tengamos como "semilla".
-// 
+//
 
 function create() {
     var name = names[Math.floor(Math.random() * names.length)],

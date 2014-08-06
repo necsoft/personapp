@@ -1,3 +1,11 @@
+//
+// Gruntfile.js
+// -------------------------------------------------------
+// 
+// Actualmente la única tarea que estamos corriendo es la de compilar
+// el stylus que tenemos en /static/styl/*
+//
+
 module.exports = function(grunt) {
 
     // Project configuration.
