@@ -50,10 +50,12 @@ function check_file() {
     if (paginas_procesadas == paginas - 1) {
         console.log("Voy a crear el PDF");
         window.$('#ready').fadeIn();
-        isLoading = true;
+        isLoading = false;
         isReady = true;
-    } else {
+        console.log("Ya no estoy cargando");
+    } else if (isReady == false) {
         isLoading = true;
+        console.log("Cargando...");
     }
 }
 
