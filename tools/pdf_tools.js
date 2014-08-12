@@ -1,10 +1,10 @@
-// 
+//
 // pdf_tools.js
 // -------------------------------------------------------
-// 
+//
 // Aca van todas las funciones que tienen que ver con generar
 // los PDF de personapp.
-// 
+//
 
 var paginas,
     paginas_procesadas = 0,
@@ -13,24 +13,24 @@ var paginas,
     doc = new window.jsPDF(),
     Datauri = require('datauri');
 
-// 
+//
 // create_pdf(personas)
-// 
-// Recibe la cantida de personas que va a procesar y crea una variable local.
-// 
+//
+// Recibe la cantidad de personas que va a procesar y crea una variable local.
+//
 
-exports.create_pdf = function(personas) {
+exports.create_pdf = function(personas, ready, lo) {
     paginas = personas.length;
     create_page(personas);
 }
 
-// 
+//
 // create_page()
-// 
+//
 // Se encarga de armar los callbacks para hacer los queries de las imagenes
 // que tienen que ser pasadas en data url, una vez hecho esto van a set_page()
 // donde creamos toda la grafica de la pagina.
-// 
+//
 
 function create_page(personas) {
     for (var i = 0; i < paginas; i++) {
@@ -38,13 +38,13 @@ function create_page(personas) {
     }
 }
 
-// 
+//
 // check_file()
-// 
+//
 // Se encarga de armar los callbacks para hacer los queries de las imagenes
 // que tienen que ser pasadas en data url, una vez hecho esto van a set_page()
 // donde creamos toda la grafica de la pagina.
-// 
+//
 
 function check_file() {
     if (paginas_procesadas == paginas - 1) {
@@ -52,30 +52,30 @@ function check_file() {
         window.$('#ready').fadeIn();
         isLoading = false;
         isReady = true;
-        console.log("Ya no estoy cargando");
+        // console.log("Ya no estoy cargando");
     } else if (isReady == false) {
         isLoading = true;
-        console.log("Cargando...");
+        // console.log("Cargando...");
     }
 }
 
-// 
+//
 // save_pdf()
-// 
+//
 // Esta funcion la utilizamos para poder llamar al save desde afuera
-// 
+//
 
 exports.save_pdf = function() {
     doc.save('Test.pdf');
 }
 
-// 
+//
 // set_page(persona,image)
-// 
+//
 // Esta funcion se dispara luego del query_image, por eso le pasamos
 // una imagen dentro de los parametros. Aca definimos toda la parte
 // estetica del PDF utilizando las funcinalidades de jspdf
-// 
+//
 
 function set_page(persona, image) {
     //Chequea si no es la primer pagina
@@ -105,13 +105,13 @@ function set_page(persona, image) {
     check_file();
 }
 
-// 
+//
 // query_image(persona,next)
-// 
+//
 // Hace el query de la imagen para convertirla en data_url
 // y pasa posteriormente a set_page() donde se arma la parte
 // estetica.
-// 
+//
 
 function query_image(persona, next) {
     var image = new window.Image();
