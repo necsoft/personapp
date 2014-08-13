@@ -9,15 +9,22 @@
 var persona = require('./tools/persona.js');
 var pdf_tools = require('./tools/pdf_tools.js');
 
+
 //
 // Chequeamos la cantidad PDF que nos pide el usuario desde el
 // input que aparece en el index.
 //
 
+var loadingPedorro = function(){
+  $("#start").fadeOut();
+  $("#loading").fadeIn();
+}
+
+
 $("#create_pdf").click(function() {
     var cantidad_paginas = parseInt($("#cantidad").val());
     if (cantidad_paginas > 0) {
-        persona.give_me(cantidad_paginas, pdf_tools.create_pdf);
+        persona.give_me(cantidad_paginas, pdf_tools.create_pdf,loadingPedorro);
     }
 });
 
@@ -26,13 +33,15 @@ $("#create_pdf").click(function() {
 // input que aparece en el index.
 //
 
-var showReady = function() {
-    $('#ready').fadeIn();
+var checkReady = function() {
+  if(pdf_tools.check_ready() === true){
+    $("#loading").fadeOut(function(){
+      $('#ready').fadeIn(2000);
+    });
+  }
 };
 
-var showLoading = function() {
-    console.log("Estoy cargando pibe");
-};
+window.setInterval(checkReady,100);
 
 //
 // Si tocan el botón de download_pdf se guarda el pdf.

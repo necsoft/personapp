@@ -1,22 +1,52 @@
 @import 'nib'
+global-reset()
+
+
 body{
 	font-family:"Helvetica Neue",Arial,sans-serif;
 	h1{
-		color:#666;
+		color:#fff;
 	}
 }
 
 // Este es el delimitador de lo que tenemos adentro de cada vista
 #main{
-	border:1px solid rgba(255,255,255,0.1);
+	background-color:#446f66;
 }
 
-
+#start,#loading,#ready{
+	position:absolute;
+	text-align:center;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+}
 
 // Estos son los divs que permanecen ocultos.
 #ready,#loading{
 	display:none;
-	bakground-color:#8affe8;
-} 
+}
+
+#loading{
+	background-color:#df8824;
+	h1{
+		color:#fff;
+		font-size:4em;
+	}
+}
+
+#ready{
+	background-color:#e22560;
+}
 
 
+#start{
+	background-color:#446f66;
+	input{
+		height: 40px;
+		font-size: 1em;
+		width:100px;
+		outline:none;
+	}
+}

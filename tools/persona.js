@@ -53,13 +53,14 @@ var names = [
 // las crea y le pasa un array de objetos al callback que nos pasen.
 //
 
-exports.give_me = function(cantidad, callback) {
+exports.give_me = function(cantidad, callback,loading) {
+    loading();
     var personas = [];
     for (var i = 0; i < cantidad; i++) {
         personas.push(create());
     };
     if (typeof callback === "function" && personas.length === cantidad) {
-        callback(personas);
+        callback(personas,loading);
     }
 }
 

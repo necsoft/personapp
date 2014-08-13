@@ -13,16 +13,38 @@ var paginas,
     doc = new window.jsPDF(),
     Datauri = require('datauri');
 
+
 //
 // create_pdf(personas)
 //
 // Recibe la cantidad de personas que va a procesar y crea una variable local.
 //
 
-exports.create_pdf = function(personas, ready, lo) {
+exports.create_pdf = function(personas,loading) {
     paginas = personas.length;
-    create_page(personas);
+    create_page(personas,loading);
 }
+
+//
+// check_loading()
+//
+// Devuelve el estado de nuestro PDF
+//
+
+exports.check_loading = function() {
+    return isLoading;
+}
+
+//
+// check_loading()
+//
+// Devuelve el estado de nuestro PDF
+//
+
+exports.check_ready = function() {
+    return isReady;
+}
+
 
 //
 // create_page()
@@ -32,9 +54,9 @@ exports.create_pdf = function(personas, ready, lo) {
 // donde creamos toda la grafica de la pagina.
 //
 
-function create_page(personas) {
+function create_page(personas,loading) {
     for (var i = 0; i < paginas; i++) {
-        query_image(personas[i], set_page);
+        query_image(personas[i], set_page,loading);
     }
 }
 
@@ -48,14 +70,7 @@ function create_page(personas) {
 
 function check_file() {
     if (paginas_procesadas == paginas - 1) {
-        console.log("Voy a crear el PDF");
-        window.$('#ready').fadeIn();
-        isLoading = false;
         isReady = true;
-        // console.log("Ya no estoy cargando");
-    } else if (isReady == false) {
-        isLoading = true;
-        // console.log("Cargando...");
     }
 }
 
@@ -77,7 +92,7 @@ exports.save_pdf = function() {
 // estetica del PDF utilizando las funcinalidades de jspdf
 //
 
-function set_page(persona, image) {
+function set_page(persona, image,loading) {
     //Chequea si no es la primer pagina
     if (paginas_procesadas > 0) {
         doc.addPage();
@@ -102,7 +117,17 @@ function set_page(persona, image) {
 
     // Agrega la pagina y chequea si el archivo esta finalizado.
     paginas_procesadas = paginas_procesadas + 1;
+    isLoading = true;
     check_file();
+
+
+
+    if (typeof loading === "function") {
+        //loading();
+    }else{
+      //console.log("No es una funcion pibe")
+    }
+
 }
 
 //
@@ -113,7 +138,7 @@ function set_page(persona, image) {
 // estetica.
 //
 
-function query_image(persona, next) {
+function query_image(persona, next,loading) {
     var image = new window.Image();
-    next(persona, Datauri(persona.image));
+    next(persona, Datauri(persona.image),loading);
 }
