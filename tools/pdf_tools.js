@@ -13,7 +13,6 @@ var paginas,
     doc = new window.jsPDF(),
     Datauri = require('datauri');
 
-
 //
 // create_pdf(personas)
 //
@@ -36,7 +35,7 @@ exports.check_loading = function() {
 }
 
 //
-// check_loading()
+// check_ready()
 //
 // Devuelve el estado de nuestro PDF
 //
@@ -119,15 +118,6 @@ function set_page(persona, image,loading) {
     paginas_procesadas = paginas_procesadas + 1;
     isLoading = true;
     check_file();
-
-
-
-    if (typeof loading === "function") {
-        //loading();
-    }else{
-      //console.log("No es una funcion pibe")
-    }
-
 }
 
 //

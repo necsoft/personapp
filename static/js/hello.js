@@ -15,18 +15,22 @@ var pdf_tools = require('./tools/pdf_tools.js');
 // input que aparece en el index.
 //
 
-var loadingPedorro = function(){
-  $("#start").fadeOut();
-  $("#loading").fadeIn();
-}
-
-
 $("#create_pdf").click(function() {
     var cantidad_paginas = parseInt($("#cantidad").val());
+    // Valido si es mayor a 0
     if (cantidad_paginas > 0) {
         persona.give_me(cantidad_paginas, pdf_tools.create_pdf,loadingPedorro);
     }
 });
+
+//
+// Creamos el comportamiento de loading
+//
+
+function loadingPedorro(){
+  window.$("#start").fadeOut();
+  window.$("#loading").fadeIn();
+}
 
 //
 // Chequeamos la cantidad PDF que nos pide el usuario desde el
