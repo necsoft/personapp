@@ -19,6 +19,7 @@ $("#create_pdf").click(function() {
     var cantidad_paginas = parseInt($("#cantidad").val());
     // Valido si es mayor a 0
     if (cantidad_paginas > 0) {
+        loadingPedorro();
         persona.give_me(cantidad_paginas, pdf_tools.create_pdf,loadingPedorro);
     }
 });
@@ -28,8 +29,8 @@ $("#create_pdf").click(function() {
 //
 
 function loadingPedorro(){
-  window.$("#start").fadeOut();
-  window.$("#loading").fadeIn();
+  $("#start").fadeOut();
+  $("#loading").fadeIn();
 }
 
 //
@@ -45,7 +46,7 @@ var checkReady = function() {
   }
 };
 
-window.setInterval(checkReady,100);
+window.setInterval(checkReady,1000);
 
 //
 // Si tocan el botón de download_pdf se guarda el pdf.

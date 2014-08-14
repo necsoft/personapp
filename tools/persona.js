@@ -19,7 +19,7 @@
 
 var math_tools = require('./math_tools.js'),
     Chance = require('chance'),
-    chance = new Chance();
+    chance = new Chance()
 
 var names = [
         "Roberto", "Raul", "Claudio", "Brenda", "Carlita", "Yamila", "Antonio", "Alfred", "Arturo"
@@ -54,6 +54,7 @@ var names = [
 //
 
 exports.give_me = function(cantidad, callback,loading) {
+    console.log("Aca debería ir el loading")
     loading();
     var personas = [];
     for (var i = 0; i < cantidad; i++) {

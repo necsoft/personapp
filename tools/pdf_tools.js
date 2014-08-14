@@ -70,6 +70,9 @@ function create_page(personas,loading) {
 function check_file() {
     if (paginas_procesadas == paginas - 1) {
         isReady = true;
+        console.log("Terminé el PDF");
+    }else{
+      console.log("Completadas "+paginas_procesadas+" paginas");
     }
 }
 
@@ -129,6 +132,5 @@ function set_page(persona, image,loading) {
 //
 
 function query_image(persona, next,loading) {
-    var image = new window.Image();
     next(persona, Datauri(persona.image),loading);
 }
