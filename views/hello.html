@@ -1,19 +1,30 @@
 <!-- Pantalla de start -->
-<div id="start">
-	<h1>Cuantas personas querés?</h1>
-	<input type="text" name="cantidad" id="cantidad" placeholder="Número de páginas"><br>
-	<button id="create_pdf">Get PDF</button>
-</div>
-
+<section id="start">
+	<div class="wrap">
+		<div class="inside">
+			<h1>How many personas do <br>you want to create?</h1>
+			<input type="text" name="cantidad" id="cantidad"><br>
+			<button id="create_pdf" class="btn">Get PDF</button>
+		</div>
+	</div>
+</section>	
 <!-- Pantalla de loading -->
-<div id="loading">
-	<h1>Loading</h1>
-</div>
+<section id="loading">
+	<div class="wrap">
+		<div class="inside">
+			<h1>We are searching personas</h1>
+		</div>
+	</div>
+</section>
 
 <!-- Pantalla de documento finalizado -->
-<div id="ready">
-	<h1>Listo, ya esta</h1>
-	<button id="download_pdf">Download PDF</button>
-</div>
+<section id="ready">
+	<div class="wrap">
+		<div class="inside">
+			<h1>Listo, ya esta</h1>
+			<button id="download_pdf" class="btn">Download PDF</button>
+		</div>
+	</div>
+</section>
 
 <script src="static/js/hello.js"></script>

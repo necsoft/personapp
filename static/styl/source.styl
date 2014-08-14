@@ -1,20 +1,67 @@
 @import 'nib'
 global-reset()
 
+/* ==========================================================================
+   Border-box
+   ========================================================================== */
 
-body{
-	font-family:"Helvetica Neue",Arial,sans-serif;
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Estilos generales
+   ========================================================================== */
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
+body {
+	cursor: default;
+	font-family: 'Open Sans', sans-serif;
+	color: #C6C5C5;
+
 	h1{
-		color:#fff;
+		color: #c6c5c5;
 	}
 }
 
-// Este es el delimitador de lo que tenemos adentro de cada vista
-#main{
-	background-color:#446f66;
+.btn{
+	border-radius(35px);
+	padding: 10px 30px;
+	color:#FFF;
+	text-decoration:none;
+	background-color:#739BA0;
+	border: 0 none;
+	cursor: pointer;
+	outline: none;
+	position: relative;
+	transition: background-color 0.3s;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1em;
 }
 
-#start,#loading,#ready{
+.wrap{
+	display: table;
+	margin: 0 auto;
+	width: 100%;
+	overflow: hidden;
+	height:100vh;
+}
+
+.inside{
+	display: table-cell;
+	vertical-align:middle;
+}
+
+section{
 	position:absolute;
 	text-align:center;
 	width:100%;
@@ -23,30 +70,72 @@ body{
 	left:0;
 }
 
-// Estos son los divs que permanecen ocultos.
-#ready,#loading{
-	display:none;
+#main{
+	background-color:#FFF;
 }
 
+#ready,
 #loading{
-	background-color:#df8824;
-	h1{
-		color:#fff;
-		font-size:4em;
-	}
+	display:none;
+	background-color:#828eae;
 }
 
-#ready{
-	background-color:#e22560;
-}
 
+/* ==========================================================================
+   Start
+   ========================================================================== */
 
 #start{
-	background-color:#446f66;
+	background-color:#FFF;
+
 	input{
-		height: 40px;
-		font-size: 1em;
-		width:100px;
-		outline:none;
+		border-radius(35px);
+		border: 1px solid #D0D1D1;
+		outline: 0 none;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
+		color: #C6C5C5;
+		text-align: center;
+		font-size: 1.25em;
+		margin: 25px 0;
+		height: 50px;
+		width: 100px;
+		padding: 10px;
+	}
+
+	h1{
+		font-size: 1.25em;
+		line-height: 1.25;
 	}
 }
+
+/* ==========================================================================
+   Loading
+   ========================================================================== */
+
+#loading{
+	h1{
+		color:#fff;
+		font-size:2.5em;
+		font-weight: bold;
+	}
+}
+
+
+/* ==========================================================================
+   Ready
+   ========================================================================== */
+
+#ready{
+
+	h1{
+		font-size: 1.25em;
+		line-height: 1.25;
+		color: #FFF;
+		margin-bottom: 20px;
+	}
+}
+
+
+
+
