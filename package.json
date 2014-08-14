@@ -1,14 +1,19 @@
 {
-    "name": "personapp",
-    "version": "0.0.1",
-    "description": "Personapp helps you to build personas.",
-    "main": "index.html",
-    "author": "buildapp",
-    "devDependencies": {
-        "grunt": "^0.4.5",
-        "fluidity": "*",
-        "grunt-contrib-stylus": "^0.18.0",
-        "chance": "*",
-        "datauri": "*"
-    }
+  "name": "personapp",
+  "version": "0.0.1",
+  "description": "Personapp helps you to build personas.",
+  "main": "index.html",
+  "author": "buildapp",
+  "window": {
+    "toolbar": false,
+    "frame": false,
+    "resizable": false
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "fluidity": "*",
+    "grunt-contrib-stylus": "^0.18.0",
+    "chance": "*",
+    "datauri": "*"
+  }
 }

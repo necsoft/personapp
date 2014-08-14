@@ -20,6 +20,8 @@ body {
 	height: 100%;
 	overflow: hidden;
 	width: 100%;
+	//Esto es para node-webkit
+	-webkit-user-select: none;
 }
 
 body {
@@ -78,10 +80,12 @@ section{
 	z-index:10;
 	width: 100%;
 	padding: 5px;
+	//Esto es para node-webkit
+	-webkit-app-region:drag;
 }
 
-.close,
-.minimize{
+#close,
+#minimize{
 	border-radius(50%);
 	height:12px;
 	width: 12px;
@@ -89,16 +93,19 @@ section{
 	cursor: pointer;
 }
 
-.close{
+#close{
 	background-color:#f05959;
 }
 
-.minimize{
+#minimize{
 	background-color:#f6c86d;
 }
 
 #main{
 	background-color:#FFF;
+	//Esto es para node-webkit
+	-webkit-app-region:no-drag;
+	-webkit-user-select: none;
 }
 
 #ready,
@@ -162,7 +169,3 @@ section{
 		margin-bottom: 20px;
 	}
 }
-
-
-
-
