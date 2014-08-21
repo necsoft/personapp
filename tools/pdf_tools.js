@@ -11,7 +11,14 @@ var paginas,
     isReady = false,
     isLoading = false,
     doc = new window.jsPDF(),
-    Datauri = require('datauri');
+    Datauri = require('datauri'),
+    fs = require('fs'),
+    PDFDocument = require('pdfkit'),
+    doc = new PDFDocument(default_options = {
+        size:"A4"
+    }),
+    anchoA4 = 595.28,
+    centroPDF = anchoA4/2;
 
 //
 // create_pdf(personas)
@@ -21,7 +28,7 @@ var paginas,
 
 exports.create_pdf = function(personas,loading) {
     paginas = personas.length;
-    create_page(personas,loading);
+    //create_page(personas,loading);
 };
 
 //
