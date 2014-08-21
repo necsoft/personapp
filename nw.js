@@ -9,9 +9,11 @@
 var nw = window.require('nw.gui');
 //Creamos una variable para llamar a la ventana
 var win = nw.Window.get();
-//Comentar para no abrir la dev-tool
-win.showDevTools();
 
+// Cli command parser
+if(nw.App.argv.slice(0) == "devmode"){
+  win.showDevTools();
+}
 //Aseguramos que este cargado todo el document
 $(document).ready(function(){
 
