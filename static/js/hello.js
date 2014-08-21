@@ -9,7 +9,6 @@
 var persona = require('./tools/persona.js');
 var pdf_tools = require('./tools/pdf_tools.js');
 
-
 //
 // Chequeamos la cantidad PDF que nos pide el usuario desde el
 // input que aparece en el index.
@@ -19,8 +18,8 @@ $("#create_pdf").click(function() {
     var cantidad_paginas = parseInt($("#cantidad").val());
     // Valido si es mayor a 0
     if (cantidad_paginas > 0) {
-        loadingPedorro();
-        persona.give_me(cantidad_paginas, pdf_tools.create_pdf,loadingPedorro);
+        loading();
+        persona.give_me(cantidad_paginas, pdf_tools.create_pdf);
     }
 });
 
@@ -28,7 +27,7 @@ $("#create_pdf").click(function() {
 // Creamos el comportamiento de loading
 //
 
-function loadingPedorro(){
+function loading(){
   $("#start").fadeOut();
   $("#loading").fadeIn();
 }
