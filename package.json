@@ -14,7 +14,6 @@
     "fluidity": "*",
     "grunt-contrib-stylus": "^0.18.0",
     "chance": "*",
-    "datauri": "*",
     "pdfkit": "*"
   }
 }
