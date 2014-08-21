@@ -53,4 +53,4 @@ window.setInterval(checkReady,1000);
 //
 $('#download_pdf').click(function() {
     pdf_tools.save_pdf();
-})
+});

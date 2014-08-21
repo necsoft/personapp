@@ -22,7 +22,7 @@ var paginas,
 exports.create_pdf = function(personas,loading) {
     paginas = personas.length;
     create_page(personas,loading);
-}
+};
 
 //
 // check_loading()
@@ -32,7 +32,7 @@ exports.create_pdf = function(personas,loading) {
 
 exports.check_loading = function() {
     return isLoading;
-}
+};
 
 //
 // check_ready()
@@ -42,7 +42,7 @@ exports.check_loading = function() {
 
 exports.check_ready = function() {
     return isReady;
-}
+};
 
 
 //
@@ -84,7 +84,7 @@ function check_file() {
 
 exports.save_pdf = function() {
     doc.save('Test.pdf');
-}
+};
 
 //
 // set_page(persona,image)

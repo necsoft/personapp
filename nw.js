@@ -18,10 +18,10 @@ $(document).ready(function(){
   //Creamos el boton de minimizar
   document.getElementById("minimize").onclick = function(){
     win.minimize();
-  }
+  };
 
   //Creamos el boton de close
   document.getElementById("close").onclick = function(){
     win.close();
-  }
-})
+  };
+});
