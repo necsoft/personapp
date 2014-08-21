@@ -29,6 +29,7 @@ var paginas,
 exports.create_pdf = function(personas,loading) {
     paginas = personas.length;
     //create_page(personas,loading);
+    pdfkit_create_pdf(personas,paginas);
 };
 
 //
@@ -140,4 +141,37 @@ function set_page(persona, image,loading) {
 
 function query_image(persona, next,loading) {
     next(persona, Datauri(persona.image),loading);
+}
+
+
+//
+// Esto esta agregado momentaneamente para poder crear una función
+// que se adapte a las necesidades de pdfkit
+//
+
+
+function pdfkit_create_pdf (personas,paginas) {
+
+  // Creamos el archivo estatico
+  doc.pipe(fs.createWriteStream('static/pdf/file.pdf'));
+
+  // Do the fucking stuff
+  for (var i = 0; i < paginas; i++) {
+    //console.log(personas[i]);
+    // Escribo el nombre
+    doc.fontSize(36);
+    doc.fillColor("#CCCCCC");
+    doc.text(personas[i].name, {align:"center"});
+
+    // Chequeo si no es la ultima pagina
+    if(i!=paginas-1){
+      doc.addPage();
+    }
+  }
+
+  // Finalizamos el archivo
+  doc.end();
+
+  // Lo anunciamos como ready
+  isReady = true;
 }

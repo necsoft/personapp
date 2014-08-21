@@ -52,5 +52,5 @@ window.setInterval(checkReady,1000);
 // Si tocan el botón de download_pdf se guarda el pdf.
 //
 $('#download_pdf').click(function() {
-    pdf_tools.save_pdf();
+    window.location='static/pdf/file.pdf';
 });
