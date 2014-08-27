@@ -17,8 +17,8 @@
 //  * Guardar un valor de sexop para saber luego que imagen asignar.
 //
 
-var math_tools = require('./math_tools.js'),
-    Chance = require('chance'),
+var math_tools = require("./math_tools.js"),
+    Chance = require("chance"),
     chance = new Chance(),
     names = [
         "Roberto", "Raul", "Claudio", "Brenda", "Carlita", "Yamila", "Antonio", "Alfred", "Arturo"

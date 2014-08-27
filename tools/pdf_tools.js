@@ -9,8 +9,8 @@
 var paginas,
     paginas_procesadas = 0,
     isReady = false,
-    fs = require('fs'),
-    PDFDocument = require('pdfkit'),
+    fs = require("fs"),
+    PDFDocument = require("pdfkit"),
     doc = new PDFDocument(default_options = {
         size:"A4"
     }),
@@ -47,7 +47,7 @@ exports.check_ready = function() {
 
 function create_pdf (personas,paginas) {
   // Creamos el archivo estatico
-  doc.pipe(fs.createWriteStream('static/pdf/file.pdf'));
+  doc.pipe(fs.createWriteStream("static/pdf/file.pdf"));
 
   // Recorro todas las personas
   for (var i = 0; i < paginas; i++) {
